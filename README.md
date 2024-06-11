@@ -1,4 +1,4 @@
-个人使用的 Rubick 的插件，使用 `vite` + `ts` + `react` ，可以作为插件的模板，`system`下为系统插件源码，`src`目录下为页面代码，`preload`目录下为预加载脚本。
+Rubick 插件模版，使用 `vite` + `ts` + `react` ，`system`下为系统插件源码，`src`目录下为页面代码，`preload`目录下为预加载脚本。
 
 # usage
 
