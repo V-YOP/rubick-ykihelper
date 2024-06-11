@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": false,
+    "module": "CommonJS",
+    "target": "ESNext",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "composite": true,
+    "outDir": "dist"
+  },
+  "include": ["preload"]
+}
