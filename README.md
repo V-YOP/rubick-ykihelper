@@ -1,4 +1,4 @@
-Rubick 插件模版，使用 `vite` + `ts` + `react` ，`system`下为系统插件源码，`src`目录下为页面代码，`preload`目录下为预加载脚本。
+个人用Rubick插件，同时包含系统插件和UI插件逻辑。使用 `vite` + `ts` + `react` ，`system`下为系统插件源码，`src`目录下为页面代码，`preload`目录下为预加载脚本。
 
 # usage
 
