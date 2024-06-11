@@ -9,6 +9,7 @@ const SCRIPT_DIR = path.dirname(__filename)
 writeFileSync(path.join(SCRIPT_DIR, 'checkIfLaunch'), __filename)
 
 module.exports = () => {
+    // 要干什么骚操作的话来这里
     return {
         onReady() {
             app.getPath('userData')

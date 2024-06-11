@@ -1,19 +1,18 @@
-个人用Rubick插件，同时包含系统插件和UI插件逻辑。使用 `vite` + `ts` + `react` ，`system`下为系统插件源码，`src`目录下为页面代码，`preload`目录下为预加载脚本。
+个人用 Rubick 插件，同时包含系统插件和 UI 插件逻辑。使用 `vite` + `ts` + `react` ，`system`下为系统插件源码，`src`目录下为页面代码，`preload`目录下为预加载脚本。
 
 # usage
 
-clone下来后，***似乎应当修改electron版本和 rubick 的一致，避免node多次加载electron依赖？***，执行：
+clone 下来后，***似乎应当修改 electron 版本和 rubick 的一致，避免 node 多次加载 electron 依赖？***，执行：
 
 ```bash
 npm i
 npm run build
 ```
 
-然后在rubick的“开发者”设置中引入该目录的`dist`文件夹即可。
+然后在 `dist` 目录下执行 `npm link`，在 rubick 的“开发者”设置中引入该目录的`dist`文件夹即可。
 
-安装后如果没有启动，可能是rubick生成了错误的快捷方式，检查 `C:\Users\<你的用户名>\AppData\Roaming\rubick\rubick-plugins-new\node_modules`下指向该插件的快捷方式是否能打开，如果不能打开，移除该快捷方式并在cmd中手动创建链接：
+安装后如果没有启动，可能是 rubick 生成了错误的快捷方式，检查 `C:\Users\<你的用户名>\AppData\Roaming\rubick\rubick-plugins-new\node_modules`下指向该插件的快捷方式是否能打开，如果不能打开，移除该快捷方式并在 cmd 中手动创建链接：
 
 ```cmd
-mklink /D rubick-ykihelper C:\路径\到你的\项目的\dist
+mklink /D rubick-ykihelper C:\路径、到你的、项目的、dist
 ```
-
