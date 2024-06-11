@@ -3,10 +3,10 @@
     "skipLibCheck": false,
     "module": "CommonJS",
     "target": "ESNext",
-    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "esModuleInterop": true,
     "composite": true,
     "outDir": "dist"
   },
-  "include": ["preload"]
+  "include": ["preload", "system"]
 }

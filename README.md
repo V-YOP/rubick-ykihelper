@@ -1,8 +1,8 @@
-个人使用的 Rubick 的 UI 插件，可以拉 `template` 作为 UI 插件的模板，`src`目录下为页面代码，使用 `vite` + `ts` + `react` ，`preload`目录下为预加载脚本。
+个人使用的 Rubick 的插件，使用 `vite` + `ts` + `react` ，可以作为插件的模板，`system`下为系统插件源码，`src`目录下为页面代码，`preload`目录下为预加载脚本。
 
 # usage
 
-clone下来后，执行：
+clone下来后，***似乎应当修改electron版本和 rubick 的一致，避免node多次加载electron依赖？***，执行：
 
 ```bash
 npm i

@@ -2,11 +2,12 @@
   "name": "rubick-ykihelper",
   "pluginName": "rubick-ykihelper",
   "version": "0.0.1",
-  "description": "这是一个Rubick插件",
+  "description": "yki: 个人用",
   "main": "index.html",
   "preload": "preload/preload.js",
+  "entry": "system/index.js",
   "logo": "https://pic1.zhimg.com/80/v2-c4b9ea27fde09f7e985a5fc77d922680_720w.png",
-  "pluginType": "ui",
+  "pluginType": "system",
   "features": [
     {
       "code": "testing",
