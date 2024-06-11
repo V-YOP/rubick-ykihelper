@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+Rubick 的 UI 插件范例，`src`目录下为页面代码，使用 `vite` + `ts` + `react` ，`preload`目录下为预加载脚本。
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# usage
 
-Currently, two official plugins are available:
+clone下来后，执行：
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm i
+npm run build
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+然后在rubick的“开发者”设置中引入该目录的`dist`文件夹即可。
+
+安装后如果没有启动，可能是rubick生成了错误的快捷方式，检查 `C:\Users\<你的用户名>\AppData\Roaming\rubick\rubick-plugins-new\node_modules`下指向该插件的快捷方式是否能打开，如果不能打开，移除该快捷方式并在cmd中手动创建链接：
+
+```cmd
+mklink /D rubick-ykihelper C:\路径\到你的\项目的\dist
+```
+
