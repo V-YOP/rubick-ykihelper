@@ -1,4 +1,4 @@
-Rubick 的 UI 插件范例，`src`目录下为页面代码，使用 `vite` + `ts` + `react` ，`preload`目录下为预加载脚本。
+个人使用的 Rubick 的 UI 插件，可以拉 `template` 作为 UI 插件的模板，`src`目录下为页面代码，使用 `vite` + `ts` + `react` ，`preload`目录下为预加载脚本。
 
 # usage
 
