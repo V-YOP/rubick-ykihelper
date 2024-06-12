@@ -1,16 +1,14 @@
-
-
+// mock 用，必须最开始执行
 (function () {
     if (window.isProd) {
         return
     }
-
     // @ts-ignore
     window.rubick = {}
     // @ts-ignore
     window.api = {}
     window.api.whenReady = () => Promise.resolve({
-        code: 'aa',
+        code: 'hello',
         payload: null,
         type: 'text'
     })

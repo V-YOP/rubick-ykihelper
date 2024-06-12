@@ -1,6 +1,5 @@
 // 
 import { ElectronAPI } from '@electron-toolkit/preload'
-import { type RubickContext } from './rubick'
 
 declare global {
     interface Window {
@@ -17,16 +16,17 @@ window.isProd = true
 window.api ??= {}
 
 let lastCtx: RubickContext | undefined 
+const cbs: ((ctx: RubickContext) => void)[] = []
+window.rubick.onPluginReady(ctx => {
+  lastCtx = ctx
+  cbs.forEach(f => f(ctx))
+})
 window.api.whenReady = () => {
   if (lastCtx) {
     return Promise.resolve(lastCtx)
   }
   return new Promise(resolve => {
-    window.rubick.onPluginReady(ctx => {
-      lastCtx = ctx
-      resolve(ctx)
-    })
+    cbs.push(resolve)
   })
 }
-window.api.whenReady().then(console.log)
 

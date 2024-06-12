@@ -7,18 +7,33 @@ type RubickAPI = {
   setSubInputValue: (value: string) => void,
 }
 
-type RubickContext = {
-  code: string,
-  type: "text" | "img" |  "files" |  "regex" |  "over" | "window",
-  payload: any,
-}
+
 
 declare global {
   interface Window {
       rubick: RubickAPI
   }
+  type RubickContext = 
+  { code: string } &
+  ({
+    type: "text"
+  } | {
+    type:  "regex" |  "over" | 'img'
+    payload: string,
+  } | {
+    type: 'file',
+    payload: {
+      isFile: boolean, 
+      isDirectory: boolean,
+      name: string, 
+      path: string,
+    }
+  } | {
+    type: 'window',
+    payload: any,
+  })
 }
 
 export {
-  RubickContext
+  
 }

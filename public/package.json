@@ -6,7 +6,7 @@
   "main": "index.html",
   "preload": "preload/preload.js",
   "entry": "system/index.js",
-  "logo": "https://github.com/V-YOP/rubick-helper/blob/master/public/logo.png?raw=true",
+  "logo": "https://raw.githubusercontent.com/V-YOP/rubick-ykihelper/main/public/logo.jpg",
   "pluginType": "system",
   "features": [
     {

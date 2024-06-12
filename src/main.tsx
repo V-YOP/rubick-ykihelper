@@ -1,14 +1,13 @@
-
+// mockRubick必须置于最前！
 import './mockRubick'
-
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import CodeRouter from './CodeRouter.tsx'
 import './index.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <CodeRouter />
   </React.StrictMode>,
 )

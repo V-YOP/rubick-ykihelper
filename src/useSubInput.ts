@@ -4,7 +4,9 @@ let subInput = ''
 const subInputListeners: Record<string, () => void> = {}
 ;(async () => {
     await window.api.whenReady()
+    console.log('subInput setup')
     window.rubick.setSubInput(v => {
+        console.log('subInput changed: ', v)
         subInput = v.text
         Object.values(subInputListeners).forEach(x => x())
     })
