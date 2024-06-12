@@ -6,15 +6,28 @@
   "main": "index.html",
   "preload": "preload/preload.js",
   "entry": "system/index.js",
-  "logo": "https://pic1.zhimg.com/80/v2-c4b9ea27fde09f7e985a5fc77d922680_720w.png",
+  "logo": "https://github.com/V-YOP/rubick-helper/blob/master/public/logo.png?raw=true",
   "pluginType": "system",
   "features": [
     {
-      "code": "testing",
-      "explain": "测试插件关键词",
+      "code": "command",
+      "explain": "ykihelper commander",
       "cmds": [
-        "测试插件",
-        "test"
+        "cmd", "commander"
+      ]
+    },
+    {
+      "code": "goto",
+      "explain": "ykihelper 路径收藏",
+      "cmds": [
+        "gt", "goto"
+      ]
+    },
+    {
+      "code": "setting",
+      "explain": "ykihelper setting",
+      "cmds": [
+        "ykihelperSetting"
       ]
     }
   ],
