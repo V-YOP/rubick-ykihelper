@@ -11,3 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <CodeRouter />
   </React.StrictMode>,
 )
+
+window.api.whenOut().then(() => {
+  window.rubick.showNotification('me go')
+})

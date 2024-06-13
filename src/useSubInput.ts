@@ -1,12 +1,11 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 
-let subInput = ''
+let subInput = window.isProd ? '' : window.location.hash
 const subInputListeners: Record<string, () => void> = {}
 ;(async () => {
     await window.api.whenReady()
     console.log('subInput setup')
     window.rubick.setSubInput(v => {
-        console.log('subInput changed: ', v)
         subInput = v.text
         Object.values(subInputListeners).forEach(x => x())
     })
@@ -49,7 +48,3 @@ function generateUUID(): string {
 
     return uuid;
 }
-
-// 示例用法
-const newUUID = generateUUID();
-console.log(`Generated UUID: ${newUUID}`);

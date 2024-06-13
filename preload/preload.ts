@@ -1,32 +1,54 @@
-// 
 import { ElectronAPI } from '@electron-toolkit/preload'
+import _ from 'lodash'
 
 declare global {
     interface Window {
       electron: ElectronAPI
       api: {
-        whenReady(): Promise<RubickContext>
+        whenReady(): Promise<RubickContext>,
+        whenOut(): Promise<void>,
+        /**
+         * for testuse
+         */
+        onePlusOne(): number,
       },
       isProd: boolean | undefined
   }
 }
 
 window.isProd = true
-// @ts-ignore
-window.api ??= {}
+
+const onePlusOne = () => _.add(1, 2)
 
 let lastCtx: RubickContext | undefined 
-const cbs: ((ctx: RubickContext) => void)[] = []
+const readyCbs: ((ctx: RubickContext) => void)[] = []
 window.rubick.onPluginReady(ctx => {
   lastCtx = ctx
-  cbs.forEach(f => f(ctx))
+  readyCbs.forEach(f => f(ctx))
 })
-window.api.whenReady = () => {
+const whenReady: typeof window['api']['whenReady'] = () => {
   if (lastCtx) {
     return Promise.resolve(lastCtx)
   }
   return new Promise(resolve => {
-    cbs.push(resolve)
+    readyCbs.push(resolve)
   })
 }
 
+let isOut = false
+const outCbs: (() => void)[] = []
+window.rubick.onPluginOut(() => {
+  window.rubick.showNotification('mygo')
+  isOut = true
+  outCbs.forEach(f => f())
+})
+const whenOut: typeof window['api']['whenOut'] = () => {
+  if (isOut) {
+    return Promise.resolve()
+  }
+  return new Promise(resolve => outCbs.push(() => resolve()))
+}
+
+window.api = {
+  whenOut, whenReady, onePlusOne,
+}
