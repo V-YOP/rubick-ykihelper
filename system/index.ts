@@ -1,10 +1,10 @@
 import { type Notification, type shell } from "electron"
 
-// 不要在这里塞任何逻辑（包括import！！）！！！这里抛出异常会直接导致rubick启动失败
-// 不要在这里塞任何逻辑（包括import！！）！！！这里抛出异常会直接导致rubick启动失败
-// 不要在这里塞任何逻辑（包括import！！）！！！这里抛出异常会直接导致rubick启动失败
+// 不要动这个文件！！！这里抛出异常会直接导致rubick启动失败
+// 不要动这个文件！！！这里抛出异常会直接导致rubick启动失败
+// 不要动这个文件！！！这里抛出异常会直接导致rubick启动失败
 // 但import type是可以的，编译成js会抹掉
-// 逻辑写在 system.ts 中，它的加载会延迟以捕获相应异常并抛出
+// 逻辑都写在 system.ts 中，它的加载会延迟以捕获相应异常并抛出
 
 module.exports = () => {
     const {writeFileSync} = require('fs')

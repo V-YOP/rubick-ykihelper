@@ -28,6 +28,10 @@
     window.rubick.showNotification = msg => {
         alert(msg)
     }
+    window.rubick.isLinux = () => false
+    window.rubick.isMacOs = () => false
+    window.rubick.isWindows = () => true
+    
 })()
 
 

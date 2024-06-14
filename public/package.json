@@ -13,7 +13,16 @@
       "code": "test",
       "explain": "ykihelper test",
       "cmds": [
-        "test"
+        "test",
+        {
+          "type": "img",
+          "label": "test_img"
+        },
+        {
+          "type": "file",
+          "label": "test_txt_and_md",
+          "match": "(txt|md)"
+        }
       ]
     },
     {

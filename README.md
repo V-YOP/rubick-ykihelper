@@ -11,7 +11,7 @@ npm run build
 
 然后在 `dist` 目录下执行 `npm link`，在 rubick 的“开发者”设置中引入该目录的`dist`文件夹即可。
 
-安装后如果没有托盘通知，插件页面没有内容，可能是 rubick 生成了错误的快捷方式或者根本没有生成，检查 `%APPDATA%\rubick\rubick-plugins-new\node_modules`下指向该插件的快捷方式是否存在和能够跳转，如果无法跳转，移除该快捷方式并在 cmd 中手动创建快捷：
+安装后如果没有托盘通知，插件页面没有内容，可能是 rubick 生成了错误的快捷方式或者根本没有生成，检查 `%APPDATA%\rubick\rubick-plugins-new\node_modules`下指向该插件的快捷方式是否存在和能够跳转，如果无法跳转，移除该快捷方式并在 cmd 中手动创建链接：
 
 ```cmd
 mklink /D %APPDATA%\rubick\rubick-plugins-new\node_modules\rubick-ykihelper C:\path\to\project\dist

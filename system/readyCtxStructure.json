@@ -1,0 +1,320 @@
+{
+    "该文件为onReady钩子中的ctx参数的结构，供参考用": {},
+    "nativeImage": {
+        "createEmpty": "function",
+        "createFromPath": "function",
+        "createFromBitmap": "function",
+        "createFromBuffer": "function",
+        "createFromDataURL": "function",
+        "createFromNamedImage": "function",
+        "createThumbnailFromPath": "function"
+    },
+    "shell": {
+        "showItemInFolder": "function",
+        "openPath": "function",
+        "openExternal": "function",
+        "trashItem": "function",
+        "beep": "function",
+        "writeShortcutLink": "function",
+        "readShortcutLink": "function"
+    },
+    "app": {
+        "quit": "function",
+        "exit": "function",
+        "focus": "function",
+        "getVersion": "function",
+        "setVersion": "function",
+        "getName": "function",
+        "setName": "function",
+        "isReady": "function",
+        "whenReady": "function",
+        "addRecentDocument": "function",
+        "clearRecentDocuments": "function",
+        "setAppUserModelId": "function",
+        "isDefaultProtocolClient": "function",
+        "setAsDefaultProtocolClient": "function",
+        "removeAsDefaultProtocolClient": "function",
+        "getApplicationInfoForProtocol": "function",
+        "getApplicationNameForProtocol": "function",
+        "setBadgeCount": "function",
+        "getBadgeCount": "function",
+        "getLoginItemSettings": "function",
+        "setLoginItemSettings": "function",
+        "isEmojiPanelSupported": "function",
+        "setAboutPanelOptions": "function",
+        "showAboutPanel": "function",
+        "showEmojiPanel": "function",
+        "setUserTasks": "function",
+        "getJumpListSettings": "function",
+        "setJumpList": "function",
+        "isPackaged": "boolean",
+        "setAppPath": "function",
+        "getAppPath": "function",
+        "setPath": "function",
+        "getPath": "function",
+        "setAppLogsPath": "function",
+        "setDesktopName": "function",
+        "getLocale": "function",
+        "getPreferredSystemLanguages": "function",
+        "getSystemLocale": "function",
+        "getLocaleCountryCode": "function",
+        "hasSingleInstanceLock": "function",
+        "requestSingleInstanceLock": "function",
+        "releaseSingleInstanceLock": "function",
+        "relaunch": "function",
+        "isAccessibilitySupportEnabled": "function",
+        "setAccessibilitySupportEnabled": "function",
+        "disableHardwareAcceleration": "function",
+        "disableDomainBlockingFor3DAPIs": "function",
+        "getFileIcon": "function",
+        "getAppMetrics": "function",
+        "getGPUFeatureStatus": "function",
+        "getGPUInfo": "function",
+        "runningUnderARM64Translation": "null",
+        "userAgentFallback": "string",
+        "configureHostResolver": "function",
+        "enableSandbox": "function",
+        "commandLine": {
+            "hasSwitch": "function",
+            "getSwitchValue": "function",
+            "appendSwitch": "function",
+            "appendArgument": "function",
+            "removeSwitch": "function"
+        },
+        "_events": {
+            "certificate-error": "function",
+            "select-client-certificate": "function",
+            "child-process-gone": "function",
+            "render-process-gone": "function",
+            "quit": "function",
+            "window-all-closed": "array",
+            "ready": "function",
+            "second-instance": "function",
+            "activate": "function",
+            "will-quit": "function"
+        },
+        "_eventsCount": "number"
+    },
+    "autoUpdater": {
+        "_events": {},
+        "_eventsCount": "null",
+        "_maxListeners": "null",
+        "updateAvailable": "null",
+        "updateURL": "null"
+    },
+    "BaseWindow": "function",
+    "BrowserView": "function",
+    "BrowserWindow": "function",
+    "clipboard": {
+        "availableFormats": "function",
+        "has": "function",
+        "read": "function",
+        "write": "function",
+        "readText": "function",
+        "writeText": "function",
+        "readRTF": "function",
+        "writeRTF": "function",
+        "readHTML": "function",
+        "writeHTML": "function",
+        "readBookmark": "function",
+        "writeBookmark": "function",
+        "readImage": "function",
+        "writeImage": "function",
+        "readFindText": "function",
+        "writeFindText": "function",
+        "readBuffer": "function",
+        "writeBuffer": "function",
+        "clear": "function"
+    },
+    "contentTracing": {
+        "getCategories": "function",
+        "startRecording": "function",
+        "stopRecording": "function",
+        "getTraceBufferUsage": "function"
+    },
+    "crashReporter": {},
+    "desktopCapturer": {
+        "getSources": "function"
+    },
+    "dialog": {
+        "showOpenDialog": "function",
+        "showOpenDialogSync": "function",
+        "showSaveDialog": "function",
+        "showSaveDialogSync": "function",
+        "showMessageBox": "function",
+        "showMessageBoxSync": "function",
+        "showErrorBox": "function",
+        "showCertificateTrustDialog": "function"
+    },
+    "globalShortcut": {
+        "registerAll": "function",
+        "register": "function",
+        "isRegistered": "function",
+        "unregister": "function",
+        "unregisterAll": "function"
+    },
+    "ipcMain": {
+        "_events": {
+            "error": "function",
+            "REMOTE_BROWSER_WRONG_CONTEXT_ERROR": "function",
+            "REMOTE_BROWSER_REQUIRE": "function",
+            "REMOTE_BROWSER_GET_BUILTIN": "function",
+            "REMOTE_BROWSER_GET_GLOBAL": "function",
+            "REMOTE_BROWSER_GET_CURRENT_WINDOW": "function",
+            "REMOTE_BROWSER_GET_CURRENT_WEB_CONTENTS": "function",
+            "REMOTE_BROWSER_CONSTRUCTOR": "function",
+            "REMOTE_BROWSER_FUNCTION_CALL": "function",
+            "REMOTE_BROWSER_MEMBER_CONSTRUCTOR": "function",
+            "REMOTE_BROWSER_MEMBER_CALL": "function",
+            "REMOTE_BROWSER_MEMBER_SET": "function",
+            "REMOTE_BROWSER_MEMBER_GET": "function",
+            "REMOTE_BROWSER_DEREFERENCE": "function",
+            "REMOTE_BROWSER_CONTEXT_RELEASE": "function",
+            "msg-trigger": "function",
+            "re-register": "function"
+        },
+        "_eventsCount": "number",
+        "_maxListeners": "null",
+        "_invokeHandlers": {},
+        "handle": "function",
+        "handleOnce": "function"
+    },
+    "inAppPurchase": {
+        "_events": {},
+        "_eventsCount": "null",
+        "_maxListeners": "null",
+        "purchaseProduct": "function",
+        "canMakePayments": "function",
+        "getReceiptURL": "function"
+    },
+    "Menu": "function",
+    "MenuItem": "function",
+    "MessageChannelMain": "function",
+    "nativeTheme": {
+        "shouldUseDarkColors": "null",
+        "themeSource": "string",
+        "shouldUseHighContrastColors": "null",
+        "shouldUseInvertedColorScheme": "null",
+        "inForcedColorsMode": "null"
+    },
+    "net": {
+        "request": "function",
+        "fetch": "function",
+        "resolveHost": "function",
+        "isOnline": "function"
+    },
+    "netLog": {
+        "startLogging": "function",
+        "stopLogging": "function",
+        "currentlyLogging": "null"
+    },
+    "Notification": "function",
+    "powerMonitor": {
+        "_events": {
+            "newListener": "function"
+        },
+        "_eventsCount": "number",
+        "_maxListeners": "null"
+    },
+    "powerSaveBlocker": {
+        "start": "function",
+        "stop": "function",
+        "isStarted": "function"
+    },
+    "pushNotifications": {},
+    "protocol": {
+        "registerSchemesAsPrivileged": "function",
+        "getStandardSchemes": "function",
+        "registerStringProtocol": "function",
+        "registerBufferProtocol": "function",
+        "registerStreamProtocol": "function",
+        "registerFileProtocol": "function",
+        "registerHttpProtocol": "function",
+        "registerProtocol": "function",
+        "unregisterProtocol": "function",
+        "isProtocolRegistered": "function",
+        "interceptStringProtocol": "function",
+        "interceptBufferProtocol": "function",
+        "interceptStreamProtocol": "function",
+        "interceptFileProtocol": "function",
+        "interceptHttpProtocol": "function",
+        "interceptProtocol": "function",
+        "uninterceptProtocol": "function",
+        "isProtocolIntercepted": "function",
+        "handle": "function",
+        "unhandle": "function",
+        "isProtocolHandled": "function"
+    },
+    "safeStorage": {
+        "isEncryptionAvailable": "function",
+        "encryptString": "function",
+        "decryptString": "function",
+        "setUsePlainTextEncryption": "function"
+    },
+    "screen": {
+        "getCursorScreenPoint": "function",
+        "getPrimaryDisplay": "function",
+        "getAllDisplays": "function",
+        "getDisplayNearestPoint": "function",
+        "screenToDipPoint": "function",
+        "dipToScreenPoint": "function",
+        "screenToDipRect": "function",
+        "dipToScreenRect": "function",
+        "getDisplayMatching": "function"
+    },
+    "session": {
+        "fromPartition": "function",
+        "fromPath": "function",
+        "defaultSession": {}
+    },
+    "ShareMenu": "function",
+    "systemPreferences": {
+        "getColor": "function",
+        "getAccentColor": "function",
+        "getMediaAccessStatus": "function",
+        "isAeroGlassEnabled": "function",
+        "getAnimationSettings": "function"
+    },
+    "TouchBar": "function",
+    "Tray": "function",
+    "utilityProcess": {
+        "fork": "function"
+    },
+    "View": "function",
+    "webContents": {
+        "create": "function",
+        "fromId": "function",
+        "fromFrame": "function",
+        "fromDevToolsTargetId": "function",
+        "getFocusedWebContents": "function",
+        "getAllWebContents": "function"
+    },
+    "WebContentsView": "function",
+    "webFrameMain": {
+        "fromId": "function"
+    },
+    "ImageView": "function",
+    "mainWindow": {
+        "setBounds": "function",
+        "_events": {
+            "blur": "array",
+            "focus": "function",
+            "show": "array",
+            "hide": "array",
+            "minimize": "function",
+            "maximize": "function",
+            "restore": "function",
+            "closed": "function"
+        },
+        "_eventsCount": "number",
+        "devToolsWebContents": "null"
+    },
+    "API": {
+        "currentPlugin": "null",
+        "DBKEY": "string",
+        "DB_INFO_KET": "string",
+        "getCurrentWindow": "function",
+        "__EscapeKeyDown": "function",
+        "copyImage": "function"
+    }
+}
