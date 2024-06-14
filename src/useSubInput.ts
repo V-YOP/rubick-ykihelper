@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 
-let subInput = window.isProd ? '' : window.location.hash
+let subInput = ''
 const subInputListeners: Record<string, () => void> = {}
 ;(async () => {
     await window.api.whenReady()

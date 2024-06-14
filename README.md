@@ -17,6 +17,12 @@ npm run build
 mklink /D %APPDATA%\rubick\rubick-plugins-new\node_modules\rubick-ykihelper C:\path\to\project\dist
 ```
 
+# 更新
+
+如果代码有修改（无论是系统插件、预加载脚本还是前端），执行 `npm run build` 即可。
+
+如果`public/pacakge.json`有修改，需要在执行 `npm run build` 之后，在“开发者”中输入该目录的`dist`文件夹路径并点击“刷新插件”，然后重启rubick。
+
 # TODO
 
 - [ ] 打包时打开发环境的react，不然错误日志太简略

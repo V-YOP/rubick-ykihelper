@@ -1,22 +1,60 @@
-import { ElectronAPI } from '@electron-toolkit/preload'
+import { ElectronAPI, exposeElectronAPI } from '@electron-toolkit/preload'
 import _ from 'lodash'
+import {execSync} from 'child_process'
+exposeElectronAPI()
 
+
+// 自定义 API 放这里
 declare global {
     interface Window {
       electron: ElectronAPI
       api: {
+        /**
+         * ready后resolve，可多次调用
+         */
         whenReady(): Promise<RubickContext>,
+
+        /**
+         * out时resolve，可多次调用，疑无效
+         */
         whenOut(): Promise<void>,
         /**
-         * for testuse
+         * 三方node库测试
          */
         onePlusOne(): number,
+        /**
+         * 是否 darkmode
+         */
+        isDarkMode(): boolean,
+
+        /**
+         * 设置rubick和系统的darkmode，因为一些技术问题，调用后插件必须退出
+         */
+        setDarkMode(darkMode: boolean): void,
+
+        /**
+         * 分离当前插件窗口
+         */
+        detachMe(): void,
       },
-      isProd: boolean | undefined
+
+      /**
+       * 是否是mock环境
+       */
+      isMock: boolean
   }
 }
 
-window.isProd = true
+const ipcSendSync = (type: string, data?: any) => {
+  const returnValue = window.electron.ipcRenderer.sendSync('msg-trigger', {
+    type,
+    data,
+  });
+  if (returnValue instanceof Error) throw returnValue;
+  return returnValue as unknown;
+};
+
+window.isMock = false
 
 const onePlusOne = () => _.add(1, 2)
 
@@ -38,7 +76,6 @@ const whenReady: typeof window['api']['whenReady'] = () => {
 let isOut = false
 const outCbs: (() => void)[] = []
 window.rubick.onPluginOut(() => {
-  window.rubick.showNotification('mygo')
   isOut = true
   outCbs.forEach(f => f())
 })
@@ -49,6 +86,47 @@ const whenOut: typeof window['api']['whenOut'] = () => {
   return new Promise(resolve => outCbs.push(() => resolve()))
 }
 
+function isDarkMode(): boolean {
+  const data = window.rubick.db.get('rubick-local-config')
+  if (!data) {
+    throw new Error('Impossible, me called before ready?')
+  }
+  return (data.data as any).perf.common.darkMode ?? false
+}
+
+function setDarkMode(darkMode: boolean) {
+  const data = window.rubick.db.get('rubick-local-config')
+  if (!data) {
+    throw new Error('Impossible, me called before ready?')
+  }
+  (data as any).data.perf.common.darkMode = darkMode
+  window.rubick.db.put(data)
+  setSystemTheme(darkMode ? 'dark' : 'light')
+  window.electron.ipcRenderer.send('re-register')
+  window.rubick.showNotification('change theme to ' + (darkMode ? 'dark' : 'light'))
+  window.rubick.outPlugin()
+}
+
+function setSystemTheme(theme: 'light' | 'dark') {
+  if (!window.rubick.isWindows()) {
+    window.rubick.showNotification('changing system theme only supports for windows system')
+    return
+  }
+  const v = theme === 'light' ? 1 : 0
+  execSync(`powershell -Command 
+  "Set-ItemProperty 
+  -Path 'HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize' 
+  -Name AppsUseLightTheme -Value ${v}; 
+  Set-ItemProperty 
+  -Path 'HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize' 
+  -Name SystemUsesLightTheme 
+  -Value ${v}"`.replace(/\r?\n/g, ' '), {windowsHide: true, })
+}
+
+function detachMe() {
+  ipcSendSync('detachPlugin')
+}
+
 window.api = {
-  whenOut, whenReady, onePlusOne,
+  whenOut, whenReady, onePlusOne, isDarkMode, setDarkMode, detachMe
 }

@@ -46,7 +46,7 @@ module.exports = () => {
     return {
         onReady(ctx: any) {
             try {
-                hooks.onReady()
+                hooks.onReady(ctx)
             } catch (e) {
                 const error = e as Error
                 const Notification_ = ctx.Notification as typeof Notification

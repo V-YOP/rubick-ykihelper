@@ -10,19 +10,20 @@
   "pluginType": "system",
   "features": [
     {
-      "code": "command",
+      "code": "test",
+      "explain": "ykihelper test",
+      "cmds": [
+        "test"
+      ]
+    },
+    {
+      "code": "commander",
       "explain": "ykihelper commander",
       "cmds": [
         "cmd", "commander"
       ]
     },
-    {
-      "code": "goto",
-      "explain": "ykihelper 路径收藏",
-      "cmds": [
-        "gt", "goto"
-      ]
-    },
+
     {
       "code": "setting",
       "explain": "ykihelper setting",
