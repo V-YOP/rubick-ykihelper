@@ -23,19 +23,6 @@ export default (ctx: RubickContext) => {
       }
     }, [subInput])
 
-    const [todoList, setTodoList] = useDB<string[]>('ykihelper-test-todolist')
-    const todoInputRef: React.LegacyRef<HTMLInputElement> = useRef(null)
-    const addTodo = useCallback(() => {
-      const v = todoInputRef?.current?.value
-      if (!v) return
-      if (!todoList) {
-        setTodoList([v])
-      } else {
-        setTodoList([v, ...todoList])
-      }
-      todoInputRef.current.value = ''
-    }, [todoList])
-
     // @ts-ignore
     const payload = Array.isArray(ctx.payload) || ctx.payload instanceof Object ? JSON.stringify(ctx.payload) : ctx.payload
     return (
@@ -56,15 +43,37 @@ export default (ctx: RubickContext) => {
           </div>
           <button onClick={() => window.api.detachMe()}>分离窗口（再点击隐藏主窗口试试）</button>
           <button onClick={() => window.rubick.shellBeep()}>beep</button>
-          <div style={{display: 'flex'}}>
-            <input placeholder="add todo (for db test)" type="text" ref={todoInputRef}/><button onClick={() => addTodo()}>add</button>
-          </div>
-          {/* 测试一下 useDB 能否更新所有监听 */}
-          <TodoList />
+          {
+            window.isMock ? <p>懒得同时mock db，ipcMain和ipcRenderer…</p> : <DBTest />
+          }
         </div>
       </div>
     )
   }
+
+function DBTest() {
+    const [todoList, setTodoList] = useDB<string[]>('ykihelper-test-todolist')
+    const todoInputRef: React.LegacyRef<HTMLInputElement> = useRef(null)
+    const addTodo = useCallback(() => {
+      const v = todoInputRef?.current?.value
+      if (!v) return
+      if (!todoList) {
+        setTodoList([v])
+      } else {
+        setTodoList([v, ...todoList])
+      }
+      todoInputRef.current.value = ''
+    }, [todoList])
+    return (
+      <>
+      <div style={{display: 'flex'}}>
+        <input placeholder="add todo (for db test)" type="text" ref={todoInputRef}/><button onClick={() => addTodo()}>add</button>
+      </div>
+      {/* 测试一下 useDB 能否更新所有监听 */}
+      <TodoList />
+      </>
+    )
+}
 
 function TodoList() {
   const [todoList] = useDB<string[]>('ykihelper-test-todolist')

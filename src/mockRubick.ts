@@ -4,33 +4,47 @@
         return
     }
     window.isMock = true
+    
+    let isDarkMode = false
+    window.api = {
+        whenReady: () => Promise.resolve({
+            code: getMockCode(),
+            payload: null,
+            type: 'text'
+        }),
+        // never resolve( TODO 网页unload时resolve？)
+        whenOut: () => new Promise(resolve => {}),
+        onePlusOne: () => 2,
+        detachMe: () => {},
+        isDarkMode: () => isDarkMode,
+        setDarkMode: d => {isDarkMode = d}
+    }
+    
     // @ts-ignore
-    window.rubick = {}
-    // @ts-ignore
-    window.api = {}
-    window.api.whenReady = () => Promise.resolve({
-        code: getMockCode(),
-        payload: null,
-        type: 'text'
-    })
-    window.api.whenOut = () => new Promise(resolve => {})
-    window.api.onePlusOne = () => 2
+    window.electron = {}
     
     let subInputCb: (v: {text: string}) => void = () => {}
-    window.rubick.setSubInput = cb => {
-        subInputCb = cb
-    }
-    window.rubick.setSubInputValue = v => {
-        subInputCb({text: v})
-    }
+    // @ts-ignore
+    window.rubick = {
+        setSubInput: cb => {
+            subInputCb = cb
+        },
+        setSubInputValue: v => {
+            subInputCb({text: v})
+        },
+        onPluginOut: () => {},
+        showNotification: msg => {
+            alert(msg)
+        },
+        isLinux: () => false,
+        isMacOs: () => false,
+        isWindows: () => true,
+        getPath: (n) => n,
+        hideMainWindow: () => {},
+        outPlugin: () => window.close(),
 
-    window.rubick.onPluginOut = () => {}
-    window.rubick.showNotification = msg => {
-        alert(msg)
     }
-    window.rubick.isLinux = () => false
-    window.rubick.isMacOs = () => false
-    window.rubick.isWindows = () => true
+    
     
 })()
 

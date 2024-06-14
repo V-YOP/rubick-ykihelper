@@ -6,7 +6,10 @@ const idToListeners: Record<string, Record<string, () => void>> = {}
 type DBDoc = NonNullable<ReturnType<Window['rubick']['db']['get']>>
 
 window.api.whenReady().then(() => {
-  // id 为发生变化的数据库的id，uuid为触发变化者的标识符，触发变化者不能刷新，不然就无限循环了
+  if (window.isMock) {
+    return
+  }
+  // id 为发生变化的数据库的id，如果当前进程有监听该id就需要做刷新
   window.electron.ipcRenderer.on('ykihelper-dbrefresh', (e, {id}: {id: string, uuid: string}) => {
     console.log('refresh!')
     const listeners = idToListeners[id] ?? {}
@@ -16,7 +19,6 @@ window.api.whenReady().then(() => {
   })
 })
 
-// TODO 更新时广播到所有渲染进程
 // TODO 性能优化...?每次更新都会让每个渲染进程的每个使用该钩子的地方都请求一次数据库
 export default function useDB<T>(id: string): [data: T | null, setData: (newData: T) => boolean] {
   // x 用于强迫刷新
