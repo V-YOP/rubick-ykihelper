@@ -1,3 +1,4 @@
+import { type BrowserWindow, type BrowserWindowConstructorOptions } from "electron"
 
 
 type RubickAPI = {
@@ -36,6 +37,14 @@ type RubickAPI = {
   isLinux: () => boolean,
   isMacOs: () => boolean,
   shellBeep: () => void,
+  /**
+   * 创建新窗口，注意该新窗口是没有 window.rubick API 的
+   * @param url 窗口 html 路径 
+   * @param option 窗口 option，name 必须给定为插件项目名，webPreferences必须给定（为 `{}` 也可）
+   * @param onDomReady 
+   * @returns 
+   */
+  createBrowserWindow: (url: string, option: BrowserWindowConstructorOptions & {name: string}, onDomReady?: () => void) => BrowserWindow
 }
 
 type DBPutReq<T> = {

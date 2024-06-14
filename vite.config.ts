@@ -17,7 +17,10 @@ export default defineConfig({
     sourcemap: 'inline',
     
     rollupOptions: {
-
+      input: {
+        index: path.resolve(__dirname, 'index.html'),
+        anotherEntry: path.resolve(__dirname, 'anotherEntry.html'),
+      },
       output: {
         // 保留类名和函数名以便调试
         format: 'es',

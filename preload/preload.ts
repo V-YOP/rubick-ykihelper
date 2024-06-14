@@ -3,7 +3,6 @@ import _ from 'lodash'
 import {execSync} from 'child_process'
 exposeElectronAPI()
 
-
 // 自定义 API 放这里
 declare global {
     interface Window {
@@ -81,6 +80,7 @@ window.rubick.onPluginOut(() => {
 })
 const whenOut: typeof window['api']['whenOut'] = () => {
   if (isOut) {
+    // 按理说不会到这里
     return Promise.resolve()
   }
   return new Promise(resolve => outCbs.push(() => resolve()))

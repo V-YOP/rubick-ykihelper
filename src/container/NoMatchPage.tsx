@@ -7,7 +7,7 @@ export default (ctx: RubickContext) => {
     const [savedSubInput, setSavedSubInput] = useState('')
     useEffect(() => {
       window.api.whenOut().then(() => {
-        window.rubick.showNotification('me go')
+        window.rubick.showNotification('my go')
       })
     }, [])
     useEffect(() => {
@@ -22,6 +22,20 @@ export default (ctx: RubickContext) => {
         document.removeEventListener('keydown', handler)
       }
     }, [subInput])
+
+    const createNewWindow = useCallback(() => {
+      window.rubick.createBrowserWindow('anotherEntry.html', {
+        name: 'rubick-ykihelper',
+        alwaysOnTop: true,
+        // autoHideMenuBar: true,
+        width: 400,
+        height: 400,
+        // frame: false,
+        webPreferences: {
+        },
+        
+      })
+    }, [])
 
     // @ts-ignore
     const payload = Array.isArray(ctx.payload) || ctx.payload instanceof Object ? JSON.stringify(ctx.payload) : ctx.payload
@@ -42,6 +56,7 @@ export default (ctx: RubickContext) => {
             <button onClick={() => window.api.setDarkMode(false)}>light</button>
           </div>
           <button onClick={() => window.api.detachMe()}>分离窗口（再点击隐藏主窗口试试）</button>
+          <button onClick={() => createNewWindow()}>创建新窗口</button>
           <button onClick={() => window.rubick.shellBeep()}>beep</button>
           {
             window.isMock ? <p>懒得同时mock db，ipcMain和ipcRenderer…</p> : <DBTest />
